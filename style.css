@@ -1,0 +1,157 @@
+body {
+    background-image: url('https://i.gifer.com/54fR.gif');
+    background-size: cover;
+    background-position: center center;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-attachment: fixed;
+}
+
+/* Estilos para as estrelas de rastro */
+.rastro-brilho {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: url('https://static.vecteezy.com/system/resources/thumbnails/015/280/706/small/3d-pink-star-icon-3d-holiday-element-png.png') no-repeat center center;
+    background-size: contain;
+    pointer-events: none;
+    animation: brilho 1s forwards;
+    opacity: 1;
+}
+
+/* Animação para as estrelas desaparecerem */
+@keyframes brilho {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 10px;
+    max-width: 1000px; /* Ajustado para suportar 4 cartões */
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito nos cartões */
+.cartao {
+    background-color: #E4C5D2;
+    border: 3px solid #B28799;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+    width: calc(25% - 10px); /* Ajustado para 4 cartões por linha */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cartao:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0px 0px 20px 5px #9C2D62; /* Luz mais intensa em rosa claro */
+}
+
+/* Faixa superior colorida */
+.cartao__header {
+    background-color: #E91E63;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.cartao__header h3 {
+    color: #FFF;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+/* Conteúdo dos cartões */
+.cartao__conteudo {
+    padding: 20px;
+    text-align: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+    background: radial-gradient(circle, #D6A2C8 10%, #F28FB2 90%);
+}
+
+/* Pergunta e resposta no cartão */
+.cartao__conteudo__pergunta,
+.cartao__conteudo__resposta {
+    padding: 0.8rem;
+    text-align: left;
+    border: 1px dashed #D1A1C2;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+.cartao__conteudo__pergunta p,
+.cartao__conteudo__resposta p {
+    margin: 0;
+    color: #6A3D77;
+}
+
+/* Diminui o tamanho da fonte apenas das respostas */
+.cartao__conteudo__resposta p {
+    font-size: 0.6rem;
+}
+
+/* Animação de rotação no hover */
+.cartao:hover .cartao__conteudo {
+    transform: rotateY(180deg);
+}
+
+.cartao__conteudo__pergunta,
+.cartao__conteudo__resposta {
+    backface-visibility: hidden;
+}
+
+.cartao__conteudo__resposta {
+    transform: rotateY(180deg);
+}
+
+footer {
+    background-color: #9C2D62;
+    color: white;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    font-size: 0.9rem;
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
